@@ -1,0 +1,4 @@
+localhost\sql2005
+sa
+senha
+30

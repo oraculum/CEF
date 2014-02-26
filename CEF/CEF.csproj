@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A5D56C6-B0D7-424C-B0A9-8AF20CBD1AD1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CEF</RootNamespace>
+    <AssemblyName>CEF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo-caixa.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaixarUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaixarUI.Designer.cs">
+      <DependentUpon>BaixarUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BoletoPrintUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoletoPrintUI.Designer.cs">
+      <DependentUpon>BoletoPrintUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteUI.Designer.cs">
+      <DependentUpon>ClienteUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteUI_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteUI_Buscar.Designer.cs">
+      <DependentUpon>ClienteUI_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerarUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerarUI.Designer.cs">
+      <DependentUpon>GerarUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelBoleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelBoleto.Designer.cs">
+      <DependentUpon>RelBoleto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelBoleto_res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelBoleto_res.Designer.cs">
+      <DependentUpon>RelBoleto_res.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Retorno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retorno.Designer.cs">
+      <DependentUpon>Retorno.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaixarUI.resx">
+      <DependentUpon>BaixarUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoletoPrintUI.resx">
+      <DependentUpon>BoletoPrintUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteUI.resx">
+      <DependentUpon>ClienteUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteUI_Buscar.resx">
+      <DependentUpon>ClienteUI_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerarUI.resx">
+      <DependentUpon>GerarUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RelBoleto.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelBoleto.resx">
+      <DependentUpon>RelBoleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelBoleto_res.resx">
+      <DependentUpon>RelBoleto_res.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Retorno.resx">
+      <DependentUpon>Retorno.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Setup\setup.nsi" />
+    <None Include="Setup\update.nsi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ArqID.TXT" />
+    <Content Include="logo-caixa.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{4a63893f-8eb9-43c1-a5e9-d8fec9125d8c}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Boleto.Net\Boleto.Net.csproj">
+      <Project>{f173e80b-e36b-48ad-b483-a27f8ca86f3c}</Project>
+      <Name>Boleto.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Entity.csproj">
+      <Project>{ab2f2664-5681-4c6c-bb3f-b645b5d22430}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)ArqID.TXT" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
