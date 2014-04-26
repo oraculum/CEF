@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BoletoBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
+    <Compile Include="ConfiguracaoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BoletoDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
+    <Compile Include="ConfiguracaoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

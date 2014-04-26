@@ -38,6 +38,10 @@
     <ApplicationIcon>logo-caixa.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Boleto.Net, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Vendor\Boleto.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
@@ -77,6 +81,12 @@
     </Compile>
     <Compile Include="ClienteUI_Buscar.Designer.cs">
       <DependentUpon>ClienteUI_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracaoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracaoUI.Designer.cs">
+      <DependentUpon>ConfiguracaoUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GerarUI.cs">
       <SubType>Form</SubType>
@@ -122,6 +132,9 @@
     <EmbeddedResource Include="ClienteUI_Buscar.resx">
       <DependentUpon>ClienteUI_Buscar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfiguracaoUI.resx">
+      <DependentUpon>ConfiguracaoUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerarUI.resx">
       <DependentUpon>GerarUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,15 +178,18 @@
   <ItemGroup>
     <Content Include="ArqID.TXT" />
     <Content Include="logo-caixa.ico" />
+    <Content Include="Resources\baixar.png" />
+    <Content Include="Resources\cliente.png" />
+    <Content Include="Resources\configuracoes.png" />
+    <Content Include="Resources\gerar.png" />
+    <Content Include="Resources\relatorio.png" />
+    <Content Include="Resources\retorno.png" />
+    <Content Include="Resources\Vendor\Boleto.Net.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{4a63893f-8eb9-43c1-a5e9-d8fec9125d8c}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Boleto.Net\Boleto.Net.csproj">
-      <Project>{f173e80b-e36b-48ad-b483-a27f8ca86f3c}</Project>
-      <Name>Boleto.Net</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Entity.csproj">
       <Project>{ab2f2664-5681-4c6c-bb3f-b645b5d22430}</Project>

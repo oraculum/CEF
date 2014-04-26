@@ -20,7 +20,7 @@ namespace CEF
             txtCliente.Select();
             this.AcceptButton = btnBuscar;
             toolStripStatusLabel1.Text = "";
-            txtDataIN.Value = DateTime.Today.Date;
+            txtDataIN.Value = new DateTime(2010, 1, 1);
             txtDataFN.Value = DateTime.Today.Date;
         }
 

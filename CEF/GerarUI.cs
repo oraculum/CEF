@@ -87,13 +87,14 @@ namespace CEF
 
                 foreach(Entity.Boleto boleto in lb)
                 {
+                    Configuracao config = ConfiguracaoBLL.get();
                     Entity.Boleto b = boleto;
                     BoletoBancario bb = new BoletoBancario();
                     bb.CodigoBanco = 104;
                     bb.OcultarInstrucoes = true;
                     
-                    Cedente c = new Cedente("07.888.394/0001-05", "Oraculum Info Ltda.", "0197", "00000863", "7");
-                    c.Codigo = "465814";
+                    Cedente c = new Cedente(config.CNPJ, config.RazaoSocial, config.Agencia, config.Conta_Format, config.ContaDigito);
+                    c.Codigo = config.Cedente;
                     String base_nossnum = (24000000000000000 + b.ID).ToString();
                     BoletoNet.Boleto bol = new BoletoNet.Boleto(b.Vencimento, b.Valor, "SR", base_nossnum, c);
                     bol.NumeroDocumento = b.ID.ToString();
@@ -107,25 +108,25 @@ namespace CEF
 
                     bol.DataDocumento = DateTime.Today.Date;
                     bol.ValorBoleto = b.Valor;
-                    Instrucao lot = new Instrucao(399);
-                    lot.Descricao = "Pagamento em loterica até o venc desconto de R$ 3,00";
+                    Instrucao lot = new Instrucao(104);
+                    lot.Descricao = config.Descricao;
                     bol.Instrucoes.Add(lot);
                     
                     if (b.Obs1.Length > 0)
                     {
-                        Instrucao obs1 = new Instrucao(399);
+                        Instrucao obs1 = new Instrucao(104);
                         obs1.Descricao = b.Obs1;
                         bol.Instrucoes.Add(obs1);
                     }
                     if (b.Obs2.Length > 0)
                     {
-                        Instrucao obs2 = new Instrucao(399);
+                        Instrucao obs2 = new Instrucao(104);
                         obs2.Descricao = b.Obs2;
                         bol.Instrucoes.Add(obs2);
                     }
                     if (b.Obs3.Length > 0)
                     {
-                        Instrucao obs3 = new Instrucao(399);
+                        Instrucao obs3 = new Instrucao(104);
                         obs3.Descricao = b.Obs3;
                         bol.Instrucoes.Add(obs3);
                     }
@@ -152,10 +153,17 @@ namespace CEF
         private void GeraLayout()
         {
             StringBuilder html = new StringBuilder();
+            int total = lbb.Count;
+            int current = 0;
             foreach(BoletoNet.BoletoBancario o in lbb)
             {
+                current += 1;
+                if (total == current)
+                    html.Append(@"<div>");
+                else
+                    html.Append(@"<div style='page-break-after:always'>");
                 html.Append(o.MontaHtml());
-                html.Append("</br></br></br></br></br></br></br></br></br></br>");
+                html.Append("</div>");
             }
 
             _arquivo = System.IO.Path.GetTempFileName();

@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Entity</RootNamespace>
-    <AssemblyName>Models</AssemblyName>
+    <AssemblyName>Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,6 +45,7 @@
     <Compile Include="Boleto.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="Configuracao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +27,18 @@ namespace CEF
 
         private void btnGerar_Click(object sender, EventArgs e)
         {
-            GerarUI g = new GerarUI();
-            g.Show();
+            Configuracao o = ConfiguracaoBLL.get();
+            if (o.Agencia != null)
+            {
+                GerarUI g = new GerarUI();
+                g.Show();
+            }
+            else
+            {
+                MessageBox.Show("É preciso fazer as configurações inicias antes de prosseguir, clique em OK que abriremos a tela de configuração pra você!");
+                ConfiguracaoUI c = new ConfiguracaoUI();
+                c.ShowDialog();
+            }
         }
 
         private void btnBaixar_Click(object sender, EventArgs e)
@@ -45,6 +57,12 @@ namespace CEF
         {
             Retorno rt = new Retorno();
             rt.Show();
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoUI c = new ConfiguracaoUI();
+            c.ShowDialog();
         }
 
     }

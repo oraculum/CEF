@@ -35,7 +35,7 @@ Section "MainSection" SEC01
   SetOverwrite on  
   File "..\bin\Debug\BLL.dll"
   File "..\bin\Debug\Boleto.Net.dll"
-  File "..\bin\Debug\Models.dll"
+  File "..\bin\Debug\Entity.dll"
   File "..\bin\Debug\DAL.dll"
   File "..\..\LigaBase\bin\Debug\LigaBase.exe"
   File "..\bin\Debug\CEF.exe"  
@@ -77,7 +77,7 @@ Section Uninstall
   Delete "$INSTDIR\ArqID.txt"
   Delete "$INSTDIR\BLL.dll"
   Delete "$INSTDIR\Boleto.Net.dll"
-  Delete "$INSTDIR\Models.dll"
+  Delete "$INSTDIR\Entity.dll"
   Delete "$INSTDIR\DAL.dll"
   Delete "$INSTDIR\CEF.exe"
   Delete "$INSTDIR\LigaBase.exe"
@@ -85,7 +85,7 @@ Section Uninstall
   Delete "$DESKTOP\${PRODUCT_NAME}.lnk"
   
   # Remove Start Menu launcher
-  Delete "$SMPROGRAMS\${COMPANYNAME}\${APPNAME}.lnk"
+  Delete "$SMPROGRAMS\${COMPANYNAME}\${PRODUCT_NAME}.lnk"
   rmDir "$SMPROGRAMS\${COMPANYNAME}"
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
