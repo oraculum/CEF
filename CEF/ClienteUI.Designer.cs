@@ -114,21 +114,21 @@
             this.txtCNPJ.Location = new System.Drawing.Point(12, 115);
             this.txtCNPJ.Mask = "00,000,000/0000-00";
             this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(124, 23);
+            this.txtCNPJ.Size = new System.Drawing.Size(133, 23);
             this.txtCNPJ.TabIndex = 3;
             // 
             // txtIE
             // 
             this.txtIE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIE.Location = new System.Drawing.Point(145, 115);
+            this.txtIE.Location = new System.Drawing.Point(277, 115);
             this.txtIE.Name = "txtIE";
-            this.txtIE.Size = new System.Drawing.Size(310, 23);
+            this.txtIE.Size = new System.Drawing.Size(178, 23);
             this.txtIE.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(142, 98);
+            this.label4.Location = new System.Drawing.Point(274, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 6;
@@ -192,6 +192,7 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(224, 23);
             this.txtBairro.TabIndex = 8;
+            this.txtBairro.Leave += new System.EventHandler(this.txtBairro_Leave);
             // 
             // label8
             // 
@@ -209,6 +210,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(305, 23);
             this.txtCidade.TabIndex = 9;
+            this.txtCidade.Text = "Volta Redonda";
             // 
             // label9
             // 
@@ -235,6 +237,7 @@
             this.txtUF.Name = "txtUF";
             this.txtUF.Size = new System.Drawing.Size(47, 23);
             this.txtUF.TabIndex = 10;
+            this.txtUF.Text = "RJ";
             // 
             // txtCEP
             // 

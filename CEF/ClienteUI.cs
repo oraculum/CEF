@@ -83,6 +83,9 @@ namespace CEF
                 }
             }
 
+            txtCidade.Text = "Volta Redonda";
+            txtUF.Text = "RJ";
+
             txtCodigo.Enabled = true;
             txtCodigo.Select();
         }
@@ -151,6 +154,12 @@ namespace CEF
                 txtFantasia.Text = txtNome.Text;
                 txtFantasia.SelectAll();
             }
+        }
+
+        private void txtBairro_Leave(object sender, EventArgs e)
+        {
+            txtCidade.Focus();
+            txtCidade.SelectAll();
         }
     }
 }

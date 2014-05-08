@@ -98,7 +98,7 @@ namespace CEF
                     String base_nossnum = (24000000000000000 + b.ID).ToString();
                     BoletoNet.Boleto bol = new BoletoNet.Boleto(b.Vencimento, b.Valor, "SR", base_nossnum, c);
                     bol.NumeroDocumento = b.ID.ToString();
-                    bol.Sacado = new Sacado(b.Cliente.CNPJ, b.Cliente.Nome);
+                    bol.Sacado = new Sacado(b.Cliente.CNPJ, b.Cliente.Nome + " (" + b.Cliente.Fantasia + ") ");
                     bol.Sacado.Endereco.End = b.Cliente.Endereco;
                     bol.Sacado.Endereco.Numero = b.Cliente.Numero;
                     bol.Sacado.Endereco.Bairro = b.Cliente.Bairro;
