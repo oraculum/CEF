@@ -182,6 +182,8 @@
     <Content Include="Resources\cliente.png" />
     <Content Include="Resources\configuracoes.png" />
     <Content Include="Resources\gerar.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\print1.png" />
     <Content Include="Resources\relatorio.png" />
     <Content Include="Resources\retorno.png" />
     <Content Include="Resources\Vendor\Boleto.Net.dll" />

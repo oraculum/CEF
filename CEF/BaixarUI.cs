@@ -95,7 +95,7 @@ namespace CEF
                     {
                         if (status != 2)
                         {
-                            Int32 numdoc = Int32.Parse(e.Row.Cells[4].Value.ToString());
+                            Int32 numdoc = Int32.Parse(e.Row.Cells[5].Value.ToString());
                             BoletoBLL.del(numdoc);
                         }
                     }
@@ -104,7 +104,7 @@ namespace CEF
                 {
                     if (status != 2)
                     {
-                        Int32 numdoc = Int32.Parse(e.Row.Cells[4].Value.ToString());
+                        Int32 numdoc = Int32.Parse(e.Row.Cells[5].Value.ToString());
                         BoletoBLL.del(numdoc);
                     }
                 }
@@ -125,7 +125,7 @@ namespace CEF
             {
                 if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
                 {
-                    Int32 id = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    Int32 id = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
                     Boleto o = BoletoBLL.get(id);
                     if (o.Recebido)
                         MessageBox.Show("Essa boleta já está quitada.");

@@ -62,6 +62,8 @@ namespace CEF
 
                 ClienteBLL.save(o);
                 toolStripStatusLabel1.Text = "Salvo com sucesso";
+
+                btnApagar.Visible = true;
             }
         }
 
@@ -88,6 +90,9 @@ namespace CEF
 
             txtCodigo.Enabled = true;
             txtCodigo.Select();
+
+
+            btnApagar.Visible = false;
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -112,6 +117,8 @@ namespace CEF
                 txtUF.Text = o.UF;
                 txtCEP.Text = o.CEP;
                 txtCodigo.Enabled = false;
+
+                btnApagar.Visible = true;
             }
         }
 

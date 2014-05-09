@@ -52,6 +52,7 @@
             this.txtNossoNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Pagar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +97,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 492);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(871, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(912, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -174,6 +175,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pagar,
+            this.Codigo,
             this.Cliente,
             this.Vencimento,
             this.Valor,
@@ -183,7 +185,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(847, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(888, 400);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
@@ -256,6 +258,14 @@
             this.Pagar.UseColumnTextForButtonValue = true;
             this.Pagar.Width = 58;
             // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Cliente_Codigo";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 50;
+            // 
             // Cliente
             // 
             this.Cliente.DataPropertyName = "Cliente_Nome";
@@ -322,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 514);
+            this.ClientSize = new System.Drawing.Size(912, 514);
             this.Controls.Add(this.txtNossoNum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNumDoc);
@@ -372,6 +382,7 @@
         private System.Windows.Forms.TextBox txtNossoNum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewButtonColumn Pagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vencimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;

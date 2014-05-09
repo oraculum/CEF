@@ -279,20 +279,21 @@
             // 
             // btnApagar
             // 
-            this.btnApagar.Location = new System.Drawing.Point(175, 270);
+            this.btnApagar.Location = new System.Drawing.Point(380, 270);
             this.btnApagar.Name = "btnApagar";
             this.btnApagar.Size = new System.Drawing.Size(75, 23);
-            this.btnApagar.TabIndex = 14;
+            this.btnApagar.TabIndex = 15;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Visible = false;
             this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(256, 270);
+            this.btnBuscar.Location = new System.Drawing.Point(175, 270);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 15;
+            this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -319,7 +320,7 @@
             this.btnNext.Location = new System.Drawing.Point(94, 30);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 23);
-            this.btnNext.TabIndex = 28;
+            this.btnNext.TabIndex = 16;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);

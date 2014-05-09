@@ -35,6 +35,11 @@ namespace Entity
             get { return Cliente.Nome; }
         }
 
+        public Int32 Cliente_Codigo
+        {
+            get { return Cliente.Codigo; }
+        }
+
         public String DataRecebido_Format
         {
             get { return (DataRecebido == DateTime.Parse("1/1/1900") ? "" : DataRecebido.ToShortDateString()); }
