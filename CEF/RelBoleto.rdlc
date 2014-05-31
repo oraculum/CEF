@@ -216,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatDateTime(Fields!Vencimento.Value, DateFormat.ShortDate)</Value>
+                              <Value>=Format(Fields!Vencimento.Value, "dd/MM/yyyy")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -241,21 +241,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Cliente_Nome">
+                    <Textbox Name="Cliente_Nome_Fantasia">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Cliente_Nome.Value</Value>
+                              <Value>=Fields!Cliente_Nome_Fantasia.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Cliente_Nome</rd:DefaultName>
+                      <rd:DefaultName>Cliente_Nome_Fantasia</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -843,8 +843,8 @@
           <DataField>Vencimento</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Cliente_Nome">
-          <DataField>Cliente_Nome</DataField>
+        <Field Name="Cliente_Nome_Fantasia">
+          <DataField>Cliente_Nome_Fantasia</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Valor">

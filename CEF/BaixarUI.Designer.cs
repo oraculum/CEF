@@ -59,6 +59,9 @@
             this.NumDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NossoNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obs1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obs2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obs3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -181,7 +184,10 @@
             this.Valor,
             this.NumDoc,
             this.DataRecebido,
-            this.NossoNum});
+            this.NossoNum,
+            this.Obs1,
+            this.Obs2,
+            this.Obs3});
             this.dataGridView1.Location = new System.Drawing.Point(12, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -328,6 +334,27 @@
             this.NossoNum.ReadOnly = true;
             this.NossoNum.Width = 130;
             // 
+            // Obs1
+            // 
+            this.Obs1.DataPropertyName = "Obs1";
+            this.Obs1.HeaderText = "Obs1";
+            this.Obs1.Name = "Obs1";
+            this.Obs1.ReadOnly = true;
+            // 
+            // Obs2
+            // 
+            this.Obs2.DataPropertyName = "Obs2";
+            this.Obs2.HeaderText = "Obs2";
+            this.Obs2.Name = "Obs2";
+            this.Obs2.ReadOnly = true;
+            // 
+            // Obs3
+            // 
+            this.Obs3.DataPropertyName = "Obs3";
+            this.Obs3.HeaderText = "Obs3";
+            this.Obs3.Name = "Obs3";
+            this.Obs3.ReadOnly = true;
+            // 
             // BaixarUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +416,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NumDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataRecebido;
         private System.Windows.Forms.DataGridViewTextBoxColumn NossoNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Obs1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Obs2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Obs3;
     }
 }

@@ -35,6 +35,11 @@ namespace Entity
             get { return Cliente.Nome; }
         }
 
+        public String Cliente_Nome_Fantasia
+        {
+            get { return Cliente.Nome + " (" + Cliente.Fantasia + ") "; }
+        }
+
         public Int32 Cliente_Codigo
         {
             get { return Cliente.Codigo; }
