@@ -76,7 +76,7 @@ namespace CEF
 
                 if (intQtde != intNossoNum)
                     MessageBox.Show("Atenção: arq. retorno " + intQtde.ToString() +
-                        " Nosso Num encontrados " + intNossoNum.ToString());
+                        "/nNosso Num encontrados " + intNossoNum.ToString());
 
                 if (blnBolNaoLoc)
                     MessageBox.Show("Existem boletas que não foram localizadas no banco de dados");
@@ -91,13 +91,13 @@ namespace CEF
             String[] fields = new String[3];
             if (line.Length > 19)
             {
-                if (line.Substring(0, 3).Equals("024"))
+                if (line.Substring(0, 2).Equals("24"))
                 {
                     if (line.Substring(193, 3).Equals("LIQ"))
                     {
-                        fields[0] = line.Substring(3, 15);
-                        fields[1] = line.Substring(87, 10).Replace(".", "/");
-                        fields[2] = line.Substring(125, 10).Replace(" ", "");
+                        fields[0] = line.Substring(3, 15); // nosso numero
+                        fields[1] = line.Substring(87, 10).Replace(".", "/"); // data pagamento
+                        fields[2] = line.Substring(125, 10).Replace(" ", ""); // valor recebido
                     }
                 }
                 else if (line.Substring(0, 10).Equals("QUANTIDADE"))
