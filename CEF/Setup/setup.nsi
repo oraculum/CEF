@@ -35,6 +35,10 @@ Section "MainSection" SEC01
   SetOverwrite ifnewer
   File "..\bin\Debug\ArqID.txt"
     
+  SetOverwrite off
+  File "..\..\Base_Vazia\CEF.mdf"
+  File "..\..\Base_Vazia\CEF_log.ldf"
+
   SetOverwrite on
   File "..\bin\Debug\BLL.dll"
   File "..\bin\Debug\Boleto.Net.dll"
@@ -43,9 +47,6 @@ Section "MainSection" SEC01
   File "..\..\LigaBase\bin\Debug\LigaBase.exe"
   File "..\bin\Debug\CEF.exe"
 
-  SetOverwrite off
-  File "..\App_Data\CEF.mdf"
-  File "..\App_Data\CEF_log.ldf"
 
   CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\CEF.exe" ""
   
