@@ -35,10 +35,10 @@ namespace CEF
                 txtCliente.Select();
                 return false;
             }
-            else if (txtValor.TextLength == 0)
+            else if (txtValor_Contrato.TextLength == 0)
             {
                 toolStripStatusLabel1.Text = "Valor é obrigatório";
-                txtValor.Select();
+                txtValor_Contrato.Select();
                 return false;
             }
             else if (txtQtde.TextLength == 0)
@@ -70,7 +70,7 @@ namespace CEF
                 {
                     Entity.Boleto o = new Entity.Boleto();
                     o.Cliente = ClienteBLL.get(Int32.Parse(txtCliente.Text));
-                    o.Valor = Decimal.Parse(txtValor.Text);
+                    o.Valor = Decimal.Parse(txtValor_Contrato.Text);
                     o.Obs1 = txtObs1.Text;
                     o.Obs2 = txtObs2.Text;
                     o.Obs3 = txtObs3.Text;
@@ -112,6 +112,13 @@ namespace CEF
                     lot.Descricao = config.Descricao;
                     bol.Instrucoes.Add(lot);
                     
+                    if (!String.IsNullOrEmpty(txtValor_Bruto.Text))
+                    {
+                        Instrucao obs = new Instrucao(104);
+                        obs.Descricao = "Cobrar valor normal contrato após o vencimento R$ " + Decimal.Parse(txtValor_Bruto.Text).ToString("n");
+                        bol.Instrucoes.Add(obs);
+                    }
+
                     if (b.Obs1.Length > 0)
                     {
                         Instrucao obs1 = new Instrucao(104);
@@ -181,7 +188,7 @@ namespace CEF
         private void clearForm()
         {
             txtCliente.ResetText();
-            txtValor.ResetText();
+            txtValor_Contrato.ResetText();
             txtObs1.ResetText();
             txtObs2.ResetText();
             txtObs3.ResetText();
@@ -194,6 +201,16 @@ namespace CEF
             clearForm();
             txtQtde.ResetText();
             txtVencimento.ResetText();
+        }
+
+        private void txtCliente_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtCliente.Text) && (!chkTravar.Checked))
+            {
+                Cliente o = ClienteBLL.get(Int32.Parse(txtCliente.Text));
+                txtValor_Contrato.Text = o.Valor_Contrato.ToString("n");
+                txtValor_Bruto.Text = o.Valor_Bruto.ToString("n");
+            }
         }
 
     }

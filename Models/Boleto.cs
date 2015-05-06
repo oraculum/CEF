@@ -20,6 +20,8 @@ namespace Entity
         public Boolean Recebido { get; set; }
         public DateTime DataRecebido { get; set; }
         public Decimal ValorRecebido { get; set; }
+
+        public Decimal Valor_Bruto { get; set; }
         
         public Boleto()
         {
@@ -28,6 +30,7 @@ namespace Entity
             NossoNum = "";
             DataRecebido = DateTime.Parse("1/1/1900");
             ValorRecebido = 0;
+            Valor_Bruto = 0;
         }
 
         public String Cliente_Nome
@@ -37,7 +40,19 @@ namespace Entity
 
         public String Cliente_Nome_Fantasia
         {
-            get { return Cliente.Nome + " (" + Cliente.Fantasia + ") "; }
+            get { return Cliente.Fantasia; }
+        }
+
+        public String Cliente_Nome_Razao
+        {
+            get
+            {
+                int max = 30;
+                if (Cliente.Nome.Length < 30)
+                    max = Cliente.Nome.Length;
+
+                return Cliente.Nome.Substring(0, max);
+            }
         }
 
         public Int32 Cliente_Codigo

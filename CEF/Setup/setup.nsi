@@ -2,7 +2,7 @@
 ; Main constants - define following constants as you want them displayed in your installation wizard
 !define COMPANYNAME "Oraculum"
 !define PRODUCT_NAME "CEF"
-!define PRODUCT_VERSION "1.0.1"
+!define PRODUCT_VERSION "1.3"
 !define PRODUCT_PUBLISHER "Oraculum Ltda."
  
 ; Following constants you should never change

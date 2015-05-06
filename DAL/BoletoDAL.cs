@@ -281,7 +281,7 @@ namespace DAL
                 try
                 {
                     const string SQL = "SELECT ID, Cliente, Emissao, Vencimento, " +
-                        "Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido " +
+                        "Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido, Valor_Bruto " +
                         "FROM Boleto INNER JOIN Cliente ON Boleto.Cliente = Cliente.Codigo " +
                         "WHERE ((Cliente.Nome LIKE @Nome) OR (Cliente.Fantasia LIKE @Nome)) AND " +
                         "(Vencimento BETWEEN @DataIN AND @DataFN) " +
@@ -311,6 +311,7 @@ namespace DAL
                         o.Recebido = Boolean.Parse(dr[9].ToString());
                         o.DataRecebido = DateTime.Parse(dr[10].ToString());
                         o.ValorRecebido = Decimal.Parse(dr[11].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[12].ToString());
 
                         lo.Add(o);
                     }
@@ -392,7 +393,7 @@ namespace DAL
                 try
                 {
                     const string SQL = "SELECT ID, Cliente, Emissao, Vencimento, " +
-                        "Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido " +
+                        "Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido, Cliente.Valor_Bruto " +
                         "FROM Boleto INNER JOIN Cliente ON Boleto.Cliente = Cliente.Codigo " +
                         "WHERE ((Cliente.Nome LIKE @Nome) OR (Cliente.Fantasia LIKE @Nome)) AND " +
                         "(Vencimento BETWEEN @DataIN AND @DataFN) AND (Recebido = @Recebido)" +
@@ -423,6 +424,7 @@ namespace DAL
                         o.Recebido = Boolean.Parse(dr[9].ToString());
                         o.DataRecebido = DateTime.Parse(dr[10].ToString());
                         o.ValorRecebido = Decimal.Parse(dr[11].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[12].ToString());
 
                         lo.Add(o);
                     }
@@ -449,11 +451,11 @@ namespace DAL
             {
                 try
                 {
-                    const string SQL = "SELECT ID, Cliente, Emissao, Vencimento, " +
-                        "Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido " +
-                        "FROM Boleto INNER JOIN Cliente ON Boleto.Cliente = Cliente.Codigo " +
-                        "WHERE (Vencimento BETWEEN @DataIN AND @DataFN) AND (Recebido = @Recebido)" +
-                        "ORDER BY Cliente.Nome";
+                    const string SQL = @"SELECT ID, Cliente, Emissao, Vencimento, 
+                        Valor, NossoNum, Obs1, Obs2, Obs3, Recebido, DataRecebido, ValorRecebido, Cliente.Valor_Bruto 
+                        FROM Boleto INNER JOIN Cliente ON Boleto.Cliente = Cliente.Codigo 
+                        WHERE (Vencimento BETWEEN @DataIN AND @DataFN) AND (Recebido = @Recebido)
+                        ORDER BY Cliente.Fantasia";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
                     cmd.Parameters.AddWithValue("@DataIN", datain);
@@ -479,6 +481,7 @@ namespace DAL
                         o.Recebido = Boolean.Parse(dr[9].ToString());
                         o.DataRecebido = DateTime.Parse(dr[10].ToString());
                         o.ValorRecebido = Decimal.Parse(dr[11].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[12].ToString());
 
                         lo.Add(o);
                     }

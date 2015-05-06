@@ -38,6 +38,16 @@ namespace CEF
                 txtFantasia.Select();
                 return false;
             }
+            else if (String.IsNullOrEmpty(txtValor_Contrato.Text))
+            {
+                toolStripStatusLabel1.Text = "Valor contrato é obrigatório";
+                return false;
+            }
+            else if (String.IsNullOrEmpty(txtValor_Bruto.Text))
+            {
+                toolStripStatusLabel1.Text = "Valor bruto é obrigatório";
+                return false;
+            }
             else
                 return true;
         }
@@ -59,6 +69,9 @@ namespace CEF
                 o.Cidade = txtCidade.Text;
                 o.UF = txtUF.Text;
                 o.CEP = txtCEP.Text;
+                o.Valor_Contrato = Decimal.Parse(txtValor_Contrato.Text);
+                o.Valor_Bruto = Decimal.Parse(txtValor_Bruto.Text);
+                o.Contrato_Ativo = chkContrato_Ativo.Checked;
 
                 ClienteBLL.save(o);
                 toolStripStatusLabel1.Text = "Salvo com sucesso";
@@ -91,6 +104,8 @@ namespace CEF
             txtCodigo.Enabled = true;
             txtCodigo.Select();
 
+            txtValor_Contrato.Text = "0";
+            txtValor_Bruto.Text = "0";
 
             btnApagar.Visible = false;
         }
@@ -117,6 +132,9 @@ namespace CEF
                 txtUF.Text = o.UF;
                 txtCEP.Text = o.CEP;
                 txtCodigo.Enabled = false;
+                txtValor_Contrato.Text = o.Valor_Contrato.ToString("n");
+                txtValor_Bruto.Text = o.Valor_Bruto.ToString("n");
+                chkContrato_Ativo.Checked = o.Contrato_Ativo;
 
                 btnApagar.Visible = true;
             }

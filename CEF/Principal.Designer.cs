@@ -29,13 +29,69 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelFilial = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnEnvelope = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnRetorno = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnBaixar = new System.Windows.Forms.Button();
             this.btnGerar = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelFilial,
+            this.statusVersion});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 271);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(443, 24);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelFilial
+            // 
+            this.toolStripStatusLabelFilial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.toolStripStatusLabelFilial.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelFilial.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.toolStripStatusLabelFilial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripStatusLabelFilial.Name = "toolStripStatusLabelFilial";
+            this.toolStripStatusLabelFilial.Size = new System.Drawing.Size(214, 19);
+            this.toolStripStatusLabelFilial.Spring = true;
+            this.toolStripStatusLabelFilial.Text = "Oraculum Ltda";
+            // 
+            // statusVersion
+            // 
+            this.statusVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.statusVersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.statusVersion.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.statusVersion.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.statusVersion.Name = "statusVersion";
+            this.statusVersion.Size = new System.Drawing.Size(214, 19);
+            this.statusVersion.Spring = true;
+            this.statusVersion.Text = "toolStripStatusLabel1";
+            // 
+            // btnEnvelope
+            // 
+            this.btnEnvelope.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnvelope.Image = global::CEF.Properties.Resources.envelope;
+            this.btnEnvelope.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnvelope.Location = new System.Drawing.Point(13, 183);
+            this.btnEnvelope.Name = "btnEnvelope";
+            this.btnEnvelope.Size = new System.Drawing.Size(135, 79);
+            this.btnEnvelope.TabIndex = 7;
+            this.btnEnvelope.Text = "Envelope";
+            this.btnEnvelope.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEnvelope.UseVisualStyleBackColor = true;
+            this.btnEnvelope.Click += new System.EventHandler(this.btnEnvelope_Click);
             // 
             // btnConfig
             // 
@@ -125,7 +181,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 193);
+            this.ClientSize = new System.Drawing.Size(443, 295);
+            this.Controls.Add(this.btnEnvelope);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnRetorno);
             this.Controls.Add(this.btnRelatorio);
@@ -136,7 +194,10 @@
             this.MaximizeBox = false;
             this.Name = "Principal";
             this.Text = "CEF";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,6 +209,10 @@
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Button btnRetorno;
         private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelFilial;
+        private System.Windows.Forms.ToolStripStatusLabel statusVersion;
+        private System.Windows.Forms.Button btnEnvelope;
     }
 }
 

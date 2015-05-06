@@ -17,6 +17,7 @@ namespace CEF
         public Principal()
         {
             InitializeComponent();
+            statusVersion.Text = "Versão: " + Program.AssemblyVersion;
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
@@ -63,6 +64,12 @@ namespace CEF
         {
             ConfiguracaoUI c = new ConfiguracaoUI();
             c.ShowDialog();
+        }
+
+        private void btnEnvelope_Click(object sender, EventArgs e)
+        {
+            Envelope el = new Envelope();
+            el.Show();
         }
 
     }

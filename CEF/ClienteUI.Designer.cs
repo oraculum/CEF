@@ -60,6 +60,11 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.txtFantasia = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtValor_Contrato = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtValor_Bruto = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chkContrato_Ativo = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -259,7 +264,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(12, 270);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 312);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 12;
@@ -269,7 +274,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(94, 270);
+            this.btnLimpar.Location = new System.Drawing.Point(94, 312);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 13;
@@ -279,7 +284,7 @@
             // 
             // btnApagar
             // 
-            this.btnApagar.Location = new System.Drawing.Point(380, 270);
+            this.btnApagar.Location = new System.Drawing.Point(380, 312);
             this.btnApagar.Name = "btnApagar";
             this.btnApagar.Size = new System.Drawing.Size(75, 23);
             this.btnApagar.TabIndex = 15;
@@ -290,7 +295,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(175, 270);
+            this.btnBuscar.Location = new System.Drawing.Point(175, 312);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 14;
@@ -302,7 +307,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 310);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 346);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(468, 22);
             this.statusStrip1.TabIndex = 27;
@@ -342,11 +347,62 @@
             this.label12.TabIndex = 29;
             this.label12.Text = "Nome fantasia";
             // 
+            // txtValor_Contrato
+            // 
+            this.txtValor_Contrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor_Contrato.Location = new System.Drawing.Point(12, 283);
+            this.txtValor_Contrato.Name = "txtValor_Contrato";
+            this.txtValor_Contrato.Size = new System.Drawing.Size(94, 23);
+            this.txtValor_Contrato.TabIndex = 30;
+            this.txtValor_Contrato.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 267);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(74, 13);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Valor Contrato";
+            // 
+            // txtValor_Bruto
+            // 
+            this.txtValor_Bruto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor_Bruto.Location = new System.Drawing.Point(118, 283);
+            this.txtValor_Bruto.Name = "txtValor_Bruto";
+            this.txtValor_Bruto.Size = new System.Drawing.Size(94, 23);
+            this.txtValor_Bruto.TabIndex = 32;
+            this.txtValor_Bruto.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(119, 267);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Valor Bruto";
+            // 
+            // chkContrato_Ativo
+            // 
+            this.chkContrato_Ativo.AutoSize = true;
+            this.chkContrato_Ativo.Location = new System.Drawing.Point(233, 288);
+            this.chkContrato_Ativo.Name = "chkContrato_Ativo";
+            this.chkContrato_Ativo.Size = new System.Drawing.Size(93, 17);
+            this.chkContrato_Ativo.TabIndex = 34;
+            this.chkContrato_Ativo.Text = "Contrato Ativo";
+            this.chkContrato_Ativo.UseVisualStyleBackColor = true;
+            // 
             // ClienteUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 332);
+            this.ClientSize = new System.Drawing.Size(468, 368);
+            this.Controls.Add(this.chkContrato_Ativo);
+            this.Controls.Add(this.txtValor_Bruto);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtValor_Contrato);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtFantasia);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnNext);
@@ -421,5 +477,10 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox txtFantasia;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtValor_Contrato;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtValor_Bruto;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox chkContrato_Ativo;
     }
 }

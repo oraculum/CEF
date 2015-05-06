@@ -63,6 +63,16 @@ namespace CEF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1430942984_699332_icon_6_mail_envelope_closed_128 {
+            get {
+                object obj = ResourceManager.GetObject("1430942984_699332-icon-6-mail-envelope-closed-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baixar {
             get {
                 object obj = ResourceManager.GetObject("baixar", resourceCulture);
@@ -86,6 +96,16 @@ namespace CEF.Properties {
         internal static System.Drawing.Bitmap configuracoes {
             get {
                 object obj = ResourceManager.GetObject("configuracoes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap envelope {
+            get {
+                object obj = ResourceManager.GetObject("envelope", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

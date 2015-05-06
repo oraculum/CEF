@@ -18,8 +18,8 @@ namespace DAL
                 try
                 {
                     const string SQL = "INSERT INTO Cliente (Codigo, Nome, Fantasia, CNPJ, IE, Endereco, " +
-                        "Numero, Complemento, Bairro, Cidade, UF, CEP) VALUES (@Codigo, @Nome, " +
-                        "@Fantasia, @CNPJ, @IE, @Endereco, @Numero, @Complemento, @Bairro, @Cidade, @UF, @CEP)";
+                        "Numero, Complemento, Bairro, Cidade, UF, CEP, Valor_Contrato, Valor_Bruto, Contrato_Ativo) VALUES (@Codigo, @Nome, " +
+                        "@Fantasia, @CNPJ, @IE, @Endereco, @Numero, @Complemento, @Bairro, @Cidade, @UF, @CEP, @Valor_Contrato, @Valor_Bruto, @Contrato_Ativo)";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
                     cmd.Parameters.AddWithValue("@Codigo", o.Codigo);
@@ -34,6 +34,9 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Cidade", o.Cidade);
                     cmd.Parameters.AddWithValue("@UF", o.UF);
                     cmd.Parameters.AddWithValue("@CEP", o.CEP);
+                    cmd.Parameters.AddWithValue("@Valor_Contrato", o.Valor_Contrato);
+                    cmd.Parameters.AddWithValue("@Valor_Bruto", o.Valor_Bruto);
+                    cmd.Parameters.AddWithValue("@Contrato_Ativo", o.Contrato_Ativo);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -58,7 +61,7 @@ namespace DAL
                     const string SQL = "UPDATE Cliente SET Nome = @Nome, Fantasia = @Fantasia, " +
                         "CNPJ = @CNPJ, IE = @IE, Endereco = @Endereco, Numero = @Numero, " +
                         "Complemento = @Complemento, Bairro = @Bairro, Cidade = @Cidade, " +
-                        "UF = @UF, CEP = @CEP WHERE (Codigo = @Codigo)";
+                        "UF = @UF, CEP = @CEP, Valor_Contrato = @Valor_Contrato, Valor_Bruto = @Valor_Bruto, Contrato_Ativo = @Contrato_Ativo WHERE (Codigo = @Codigo)";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
                     cmd.Parameters.AddWithValue("@Nome", o.Nome);
@@ -72,7 +75,10 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Cidade", o.Cidade);
                     cmd.Parameters.AddWithValue("@UF", o.UF);
                     cmd.Parameters.AddWithValue("@CEP", o.CEP);
+                    cmd.Parameters.AddWithValue("@Valor_Contrato", o.Valor_Contrato);
+                    cmd.Parameters.AddWithValue("@Valor_Bruto", o.Valor_Bruto);
                     cmd.Parameters.AddWithValue("@Codigo", o.Codigo);
+                    cmd.Parameters.AddWithValue("@Contrato_Ativo", o.Contrato_Ativo);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -180,7 +186,7 @@ namespace DAL
                 try
                 {
                     const string SQL = "SELECT Codigo, Nome, Fantasia, CNPJ, IE, Endereco, Numero, " +
-                        "Complemento, Bairro, Cidade, UF, CEP FROM Cliente WHERE Codigo = @Codigo";
+                        "Complemento, Bairro, Cidade, UF, CEP, Valor_Contrato, Valor_Bruto, Contrato_Ativo FROM Cliente WHERE Codigo = @Codigo";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
                     cmd.Parameters.AddWithValue("@Codigo", codigo);
@@ -202,6 +208,9 @@ namespace DAL
                         o.Cidade = dr[9].ToString();
                         o.UF = dr[10].ToString();
                         o.CEP = dr[11].ToString();
+                        o.Valor_Contrato = Decimal.Parse(dr[12].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[13].ToString());
+                        o.Contrato_Ativo = Boolean.Parse(dr[14].ToString());
                         break;
                     }
                 }
@@ -227,7 +236,7 @@ namespace DAL
                 try
                 {
                     const string SQL = "SELECT Codigo, Nome, Fantasia, CNPJ, IE, Endereco, Numero, " +
-                        "Complemento, Bairro, Cidade, UF, CEP FROM Cliente " +
+                        "Complemento, Bairro, Cidade, UF, CEP, Valor_Contrato, Valor_Bruto, Contrato_Ativo FROM Cliente " +
                         "WHERE (Nome LIKE @Nome) OR (Fantasia LIKE @Nome) ORDER BY Nome";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
@@ -252,6 +261,9 @@ namespace DAL
                         o.Cidade = dr[9].ToString();
                         o.UF = dr[10].ToString();
                         o.CEP = dr[11].ToString();
+                        o.Valor_Contrato = Decimal.Parse(dr[12].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[13].ToString());
+                        o.Contrato_Ativo = Boolean.Parse(dr[14].ToString());
 
                         lo.Add(o);
                     }
@@ -279,7 +291,7 @@ namespace DAL
                 try
                 {
                     const string SQL = "SELECT Codigo, Nome, Fantasia, CNPJ, IE, Endereco, Numero, " +
-                        "Complemento, Bairro, Cidade, UF, CEP FROM Cliente ORDER BY Nome";
+                        "Complemento, Bairro, Cidade, UF, CEP, Valor_Contrato, Valor_Bruto, Contrato_Ativo FROM Cliente ORDER BY Nome";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
 
@@ -301,6 +313,62 @@ namespace DAL
                         o.Cidade = dr[9].ToString();
                         o.UF = dr[10].ToString();
                         o.CEP = dr[11].ToString();
+                        o.Valor_Contrato = Decimal.Parse(dr[12].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[13].ToString());
+                        o.Contrato_Ativo = Boolean.Parse(dr[14].ToString());
+
+                        lo.Add(o);
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return lo;
+        }
+
+        public static List<Cliente> listAll__Contrato_Ativo()
+        {
+            List<Cliente> lo = new List<Cliente>();
+            SqlDataReader dr = null;
+
+            using (SqlConnection con = new SqlConnection(Common.getCon()))
+            {
+                try
+                {
+                    const string SQL = "SELECT Codigo, Nome, Fantasia, CNPJ, IE, Endereco, Numero, " +
+                        "Complemento, Bairro, Cidade, UF, CEP, Valor_Contrato, Valor_Bruto, Contrato_Ativo FROM Cliente WHERE Contrato_Ativo = @Contrato_Ativo ORDER BY Cidade, Bairro";
+
+                    SqlCommand cmd = new SqlCommand(SQL, con);
+                    cmd.Parameters.AddWithValue("@Contrato_Ativo", true);
+
+                    con.Open();
+                    dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    while (dr.Read())
+                    {
+                        Cliente o = new Cliente();
+                        o.Codigo = Int32.Parse(dr[0].ToString());
+                        o.Nome = dr[1].ToString();
+                        o.Fantasia = dr[2].ToString();
+                        o.CNPJ = dr[3].ToString();
+                        o.IE = dr[4].ToString();
+                        o.Endereco = dr[5].ToString();
+                        o.Numero = dr[6].ToString();
+                        o.Complemento = dr[7].ToString();
+                        o.Bairro = dr[8].ToString();
+                        o.Cidade = dr[9].ToString();
+                        o.UF = dr[10].ToString();
+                        o.CEP = dr[11].ToString();
+                        o.Valor_Contrato = Decimal.Parse(dr[12].ToString());
+                        o.Valor_Bruto = Decimal.Parse(dr[13].ToString());
+                        o.Contrato_Ativo = Boolean.Parse(dr[14].ToString());
 
                         lo.Add(o);
                     }

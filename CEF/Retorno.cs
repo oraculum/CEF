@@ -13,20 +13,37 @@ using System.Windows.Forms;
 
 namespace CEF
 {
+
     public partial class Retorno : Form
     {
+        public class BolProcessada
+        {
+            public String Cliente { get; set; }
+            public String NossoNum { get; set; }
+            public Decimal Valor { get; set; }
+            public Decimal ValorPago { get; set; }
+
+            public BolProcessada()
+            {
+                Cliente = String.Empty;
+                NossoNum = String.Empty;
+                Valor = 0;
+                ValorPago = 0;
+            }
+        }
+
         private Int32 intQtde;
+        List<BolProcessada> listBol;
 
         public Retorno()
         {
             InitializeComponent();
-            lblResult.Text = "";
             toolStripStatusLabel1.Text = "";
+            listBol = new List<BolProcessada>();
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            lblResult.Text = "";
             toolStripStatusLabel1.Text = "";
             intQtde = 0;
 
@@ -47,13 +64,16 @@ namespace CEF
                     if (line == null)
                         break;
 
-                    toolStripStatusLabel1.Text = "Processando linha " + nLoopCtr.ToString();
+                    toolStripStatusLabel1.Text = "Processando linhas " + nLoopCtr.ToString();
                     Application.DoEvents();
                     nLoopCtr++;
 
                     fields = processLine(line);
                     if (fields[0] != null)
                     {
+                        BolProcessada bp = new BolProcessada();
+                        bp.NossoNum = fields[0];
+
                         intNossoNum += 1;
                         Boleto b = BoletoBLL.get(Int32.Parse(fields[0]));
                         if (b.ID > 0)
@@ -64,13 +84,18 @@ namespace CEF
 
                             BoletoBLL.save(ref b);
 
-                            lblResult.Text += fields[0] + " - " + b.Cliente.Nome + Environment.NewLine;
+                            bp.Cliente = b.Cliente.Nome;
+                            bp.Valor = b.Valor;
+                            bp.ValorPago = b.ValorRecebido;
                         }
                         else
                         {
-                            lblResult.Text += fields[0] + " - *** NOSSO NUMERO NÃO LOCALIZADO NO BANCO DE DADOS ***" + Environment.NewLine;
+                            bp.Cliente = "*** NOSSO NUMERO NÃO LOCALIZADO NO BANCO DE DADOS ***";
                             blnBolNaoLoc = true;
                         }
+
+                        listBol.Add(bp);
+                        toolStripStatusLabel1.Text = "Processando Nosso Num.: " + fields[0];
                     }
                 }
 
@@ -81,8 +106,9 @@ namespace CEF
                 if (blnBolNaoLoc)
                     MessageBox.Show("Existem boletas que não foram localizadas no banco de dados");
 
+                dataGridView1.DataSource = listBol;
 
-                toolStripStatusLabel1.Text = "Processo finalizado";
+                toolStripStatusLabel1.Text = "Processo finalizado. Total boletas " + intQtde;
             }
         }
 
@@ -97,7 +123,7 @@ namespace CEF
                     {
                         fields[0] = line.Substring(3, 15); // nosso numero
                         fields[1] = line.Substring(87, 10).Replace(".", "/"); // data pagamento
-                        fields[2] = line.Substring(125, 10).Replace(" ", ""); // valor recebido
+                        fields[2] = line.Substring(183, 10).Replace(" ", ""); // valor recebido
                     }
                 }
                 else if (line.Substring(0, 10).Equals("QUANTIDADE"))
@@ -105,6 +131,26 @@ namespace CEF
             }
 
             return fields;
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                Decimal valor = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                Decimal valorPago = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+
+                if (((valorPago + 3) < valor) || (valor == 0))
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+                }
+            }
         }
     }
 }

@@ -88,6 +88,18 @@
     <Compile Include="ConfiguracaoUI.Designer.cs">
       <DependentUpon>ConfiguracaoUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Envelope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envelope.Designer.cs">
+      <DependentUpon>Envelope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Envelope_res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envelope_res.Designer.cs">
+      <DependentUpon>Envelope_res.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerarUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,15 @@
     <EmbeddedResource Include="ConfiguracaoUI.resx">
       <DependentUpon>ConfiguracaoUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Envelope.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envelope.resx">
+      <DependentUpon>Envelope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envelope_res.resx">
+      <DependentUpon>Envelope_res.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerarUI.resx">
       <DependentUpon>GerarUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,9 +199,11 @@
   <ItemGroup>
     <Content Include="ArqID.TXT" />
     <Content Include="logo-caixa.ico" />
+    <None Include="Resources\1430942984_699332-icon-6-mail-envelope-closed-128.png" />
     <Content Include="Resources\baixar.png" />
     <Content Include="Resources\cliente.png" />
     <Content Include="Resources\configuracoes.png" />
+    <None Include="Resources\envelope.png" />
     <Content Include="Resources\gerar.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\print1.png" />

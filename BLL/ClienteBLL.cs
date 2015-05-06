@@ -43,5 +43,10 @@ namespace BLL
         {
             return ClienteDAL.listAll();
         }
+
+        public static List<Cliente> listAll__Contrato_Ativo()
+        {
+            return ClienteDAL.listAll__Contrato_Ativo();
+        }
     }
 }

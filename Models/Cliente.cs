@@ -20,6 +20,16 @@ namespace Entity
         public String Cidade { get; set; }
         public String UF { get; set; }
         public String CEP { get; set; }
+        public Decimal Valor_Contrato { get; set; }
+        public Decimal Valor_Bruto { get; set; }
+        public Boolean Contrato_Ativo { get; set; }
+
+        public Cliente()
+        {
+            Valor_Contrato = 0;
+            Valor_Bruto = 0;
+            Contrato_Ativo = false;
+        }
 
     }
 }
